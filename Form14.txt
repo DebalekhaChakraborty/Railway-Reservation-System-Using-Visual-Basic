@@ -1,0 +1,22 @@
+Private Sub Back_Click()
+    CancelBook.Hide
+    BookingForm.Show
+End Sub
+
+Private Sub Delete_Click()
+    Cancel.Refresh
+    
+    With Cancel.Recordset
+     .Find "PNR = '" & Val(No.Text) & "'"
+     If .EOF Then
+      MsgBox "No Record Found!"
+      Exit Sub
+     End With
+     
+     MsgBox "Cancellation successfull", vbInformation
+     
+End Sub
+
+Private Sub Form_Load()
+    No.Text = ""
+End Sub
